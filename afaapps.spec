@@ -8,6 +8,7 @@ Group:		Base
 Source0:	http://domsch.com/linux/aacraid/%{name}-%{version}-0.tar.gz
 # Source0-md5:	509565c909098646242172397aba5157
 URL:		http://domsch.com/linux/
+ExclusiveArch:	%{ix86}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_sbindir		/sbin
@@ -19,10 +20,8 @@ AACRAID Storage Management software.
 Oprogramowanie do zarz±dzania macierzami AACRAID.
 
 %prep
-%setup -q -T -c -n %{name}-%{version}
+%setup -q -T -c
 tar xzf %{SOURCE0} --exclude='/dev/afa*'
-
-%build
 
 %install
 rm -rf $RPM_BUILD_ROOT
