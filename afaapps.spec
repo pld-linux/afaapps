@@ -28,8 +28,7 @@ Oprogramowanie do zarz±dzania macierzami AACRAID.
 %setup -q -c
 
 %build
-install -d {dev,etc/rc.d/init.d,usr/sbin,usr/share/snmp/mibs}
-rpm2cpio *.rpm | cpio -i
+rpm2cpio *.rpm | cpio -i -d
 
 %install
 rm -rf $RPM_BUILD_ROOT
