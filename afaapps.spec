@@ -1,12 +1,15 @@
+# TODO:
+#	- afasnmp subpackage?
+#
 Summary:	AACRAID Storage Management software
 Summary(pl):	Oprogramowanie do zarz±dzania macierzami AACRAID
 Name:		afaapps
-Version:	2.7
+Version:	2.8
 Release:	1
 License:	Dell
 Group:		Base
-Source0:	ftp://ftp.us.dell.com/scsi-raid/aacraid-util-rh8.0-i386.tar.gz
-# Source0-md5:	06195cbabedef5983d2d06fa7cf2088a
+Source0:	ftp://ftp.us.dell.com/scsi-raid/afa-apps-snmp.2806076-A02.tar.gz
+# Source0-md5:	183784aecbc8c0deee35fa57a1acee06
 Source1:	%{name}-LICENSE
 URL:		http://domsch.com/linux/
 BuildRequires:	rpm-utils
@@ -25,14 +28,14 @@ Oprogramowanie do zarz±dzania macierzami AACRAID.
 %setup -q -c
 
 %build
-install -d dev usr/sbin
+install -d {dev,etc/rc.d/init.d,usr/sbin,usr/share/snmp/mibs}
 rpm2cpio *.rpm | cpio -i
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_sbindir}
 
-install usr/sbin/afacli.bin $RPM_BUILD_ROOT%{_sbindir}/afacli
+install usr/sbin/afacli $RPM_BUILD_ROOT%{_sbindir}/afacli
 install %{SOURCE1} LICENSE
 
 %clean
