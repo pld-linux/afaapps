@@ -8,8 +8,8 @@ Version:	2.8
 Release:	1
 License:	Dell
 Group:		Base
-Source0:	ftp://ftp.us.dell.com/scsi-raid/afa-apps-snmp.2806076-A02.tar.gz
-# Source0-md5:	183784aecbc8c0deee35fa57a1acee06
+Source0:	ftp://ftp.us.dell.com/scsi-raid/afa-apps-snmp.2807420-A04.tar.gz
+# Source0-md5:	3f70c523ebb97c9ef212eb49c3cdbb76
 Source1:	%{name}-LICENSE
 URL:		http://domsch.com/linux/
 BuildRequires:	rpm-utils
