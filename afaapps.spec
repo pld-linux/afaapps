@@ -2,7 +2,7 @@
 #	- afasnmp subpackage?
 #
 Summary:	AACRAID Storage Management software
-Summary(pl.UTF-8):   Oprogramowanie do zarządzania macierzami AACRAID
+Summary(pl.UTF-8):	Oprogramowanie do zarządzania macierzami AACRAID
 Name:		afaapps
 Version:	2.8
 Release:	1
