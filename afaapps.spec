@@ -18,6 +18,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_sbindir		/sbin
 
+# already stripped
+%define		_enable_debug_packages	0
+
 %description
 AACRAID Storage Management software.
 
@@ -26,15 +29,13 @@ Oprogramowanie do zarządzania macierzami AACRAID.
 
 %prep
 %setup -q -c
-
-%build
 rpm2cpio *.rpm | cpio -i -d
+mv usr/sbin/* .
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_sbindir}
-
-install usr/sbin/afacli $RPM_BUILD_ROOT%{_sbindir}/afacli
+install -p afacli $RPM_BUILD_ROOT%{_sbindir}
 install %{SOURCE1} LICENSE
 
 %clean
@@ -42,5 +43,5 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc dev/MAKEDEV.afa LICENSE usr/sbin/getcfg.afa
-%attr(755,root,root) %{_sbindir}/*
+%doc readme.txt dev/MAKEDEV.afa LICENSE getcfg.afa
+%attr(755,root,root) %{_sbindir}/afacli
